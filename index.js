@@ -12,7 +12,9 @@ import multer from 'multer';
 import handleValidationErrors from './utils/handleValidationErrors.js';
 
 mongoose
-  .connect(process.env.MONGODB_URI)
+  .connect(
+    'mongodb+srv://itsokey086:Kolan3121@cluster0.xuiy6bw.mongodb.net/blog?retryWrites=true&w=majority&appName=Cluster0',
+  )
   .then(() => console.log('DB Ok'))
   .catch((err) => console.log(err));
 
