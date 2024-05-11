@@ -12,9 +12,7 @@ import multer from 'multer';
 import handleValidationErrors from './utils/handleValidationErrors.js';
 
 mongoose
-  .connect(
-    'mongodb+srv://itsokey086:Kolan3121@cluster0.xuiy6bw.mongodb.net/blog?retryWrites=true&w=majority&appName=Cluster0',
-  )
+  .connect(process.env.MONGODB_URI)
   .then(() => console.log('DB Ok'))
   .catch((err) => console.log(err));
 
@@ -68,7 +66,7 @@ app.patch(
   PostController.update,
 );
 
-app.listen(process.env.PORT, (err) => {
+app.listen(process.env.PORT || 4444, (err) => {
   if (err) {
     return console.log('err');
   }
